@@ -5,7 +5,8 @@
  import Display from '../components/display'
  
  
-
+ 
+ let calculadora = document.querySelector('.calculator')
 
  class Calculator extends Component{
 
@@ -27,6 +28,7 @@
                     this.setState({secondValue:(lastValue*10)+value})
                     break;
         }
+
 
     }// ta fazendo o state do firstValue virar 0, e somar com o parametro na classe btn
 
