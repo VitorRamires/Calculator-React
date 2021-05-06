@@ -5,12 +5,11 @@
  import Display from '../components/display'
  
  
- 
- let calculadora = document.querySelector('.calculator')
+
 
  class Calculator extends Component{
 
-    initialState = {firstValue:0,secondValue:0,operator:1,isSum:false,appear:""}
+    initialState = {firstValue:0,secondValue:0,operator:1,isSum:false}
     constructor(props){
         super(props);
         this.state = this.initialState;
@@ -39,8 +38,9 @@
         }
         if(isSum === true){
             return secondValue ? firstValue + "+" + secondValue : firstValue + "+";
-        } 
+        } else {
             return secondValue ? firstValue + "-" + secondValue : firstValue + "-";
+        }
     }
     
     
@@ -56,14 +56,10 @@
                 return isSum ? firstValue + secondValue : firstValue - secondValue
         }
             
-            
-
-
     }//como o firstvalue está mudando, ele vai mostrar o first value já modificado que é (lastValue*10 + value), o que vai dar o numero do parametro mostrado no final das contas
 
     pickOperation = (isSum) =>{
         this.setState({operator:2,isSum})
-        
     }
 
     exectOperation = () =>{
@@ -93,7 +89,6 @@
                 <Button display={"0"} onClick={() => this.putValue(0)} />
                 <Button display={"+"} onClick={() => this.pickOperation(true)} />
                 <Button display={"-"} onClick={()=>this.pickOperation(false)} />
-                <Button display={"="} onClick={()=>this.exectOperation()} />
                 <Button display={"C"} onClick={()=>this.clear()} />
                 </div>
             </div>
